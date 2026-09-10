@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rankit Singh | Data Analyst</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fa;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: #111827;
+            color: white;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav ul li a:hover {
+            color: #60a5fa;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 50px 20px;
+            background: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 10px;
+            color: #111827;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        /* BUTTONS */
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            background: #1d4ed8;
+        }
+
+        .btn-outline {
+            background: white;
+            color: #2563eb;
+            border: 2px solid #2563eb;
+        }
+
+        .btn-outline:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #111827;
+        }
+
+        /* ABOUT */
+        .about {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            font-size: 17px;
+            color: #555;
+        }
+
+        /* SKILLS */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .skill {
+            background: white;
+            padding: 25px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            font-weight: bold;
+        }
+
+        .skill:hover {
+            transform: translateY(-4px);
+            transition: 0.3s;
+        }
+
+        /* PROJECTS */
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .project {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            transition: 0.3s;
+        }
+
+        .project h3 {
+            margin-bottom: 12px;
+            color: #2563eb;
+        }
+
+        .project p {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .project a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 700px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-box p {
+            margin: 12px 0;
+        }
+
+        .contact-box a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            section {
+                padding: 50px 5%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <nav>
+
+            <div class="logo">
+                Rankit Singh
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HOME -->
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <h1>
+                Rankit Singh
+            </h1>
+
+            <h2>
+                Data Analyst | Data Analytics Enthusiast
+            </h2>
+
+            <p>
+                B.Tech Computer Science student passionate about Data Analytics.
+                Skilled in SQL, Python, Excel and Power BI.
+                I enjoy turning raw data into meaningful insights and dashboards.
+            </p>
+
+            <div class="buttons">
+
+                <!-- RESUME -->
+                <a class="btn"
+                   href="Rankit_Singh_Resume.pdf"
+                   target="_blank">
+
+                    View Resume
+
+                </a>
+
+
+                <!-- GITHUB -->
+                <a class="btn btn-outline"
+                   href="https://github.com/rankitssingh"
+                   target="_blank">
+
+                    GitHub
+
+                </a>
+
+
+                <!-- LINKEDIN -->
+                <a class="btn btn-outline"
+                   href="https://www.linkedin.com/in/rankit-kumar-476420338/"
+                   target="_blank">
+
+                    LinkedIn
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2 class="section-title">
+            About Me
+        </h2>
+
+        <div class="about">
+
+            <p>
+                I am Rankit Singh, a final-year B.Tech Computer Science student
+                at Jaipur Engineering College, affiliated with Rajasthan
+                Technical University (RTU).
+            </p>
+
+            <br>
+
+            <p>
+                I am an aspiring Data Analyst with hands-on practice in Python,
+                SQL, Excel and Power BI. I have worked on data cleaning,
+                exploratory data analysis, data visualization and dashboard
+                creation.
+            </p>
+
+            <br>
+
+            <p>
+                My goal is to start my career in Data Analytics and use data
+                to help businesses make better decisions.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <h2 class="section-title">
+            Skills
+        </h2>
+
+        <div class="skills-container">
+
+            <div class="skill">
+                Python
+            </div>
+
+            <div class="skill">
+                SQL
+            </div>
+
+            <div class="skill">
+                Pandas
+            </div>
+
+            <div class="skill">
+                NumPy
+            </div>
+
+            <div class="skill">
+                Matplotlib
+            </div>
+
+            <div class="skill">
+                Seaborn
+            </div>
+
+            <div class="skill">
+                MS Excel
+            </div>
+
+            <div class="skill">
+                Power BI
+            </div>
+
+            <div class="skill">
+                Data Cleaning
+            </div>
+
+            <div class="skill">
+                EDA
+            </div>
+
+            <div class="skill">
+                Data Visualization
+            </div>
+
+            <div class="skill">
+                DAX
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <h2 class="section-title">
+            Projects
+        </h2>
+
+        <div class="projects-container">
+
+            <!-- SALES DATA ANALYSIS -->
+            <div class="project">
+
+                <h3>
+                    Sales Data Analysis
+                </h3>
+
+                <p>
+                    Analyzed sales data using Python, Pandas, Matplotlib
+                    and Seaborn. Performed data cleaning, analysis and
+                    visualization to identify sales trends and regional
+                    performance.
+                </p>
+
+                <a href="https://github.com/rankitssingh/sales-data-analysis"
+                   target="_blank">
+
+                    View Project →
+
+                </a>
+
+            </div>
+
+
+            <!-- CUSTOMER PURCHASE -->
+            <div class="project">
+
+                <h3>
+                    Customer Purchase Analysis
+                </h3>
+
+                <p>
+                    Analyzed customer purchase data to understand customer
+                    behavior, product performance and total purchase amount
+                    using Python and Pandas.
+                </p>
+
+                <a href="https://github.com/rankitssingh"
+                   target="_blank">
+
+                    View on GitHub →
+
+                </a>
+
+            </div>
+
+
+            <!-- SALARY ANALYSIS -->
+            <div class="project">
+
+                <h3>
+                    Department Salary Analysis
+                </h3>
+
+                <p>
+                    Analyzed department-wise salary data and created
+                    visualizations to compare salary distribution across
+                    different departments.
+                </p>
+
+                <a href="https://github.com/rankitssingh"
+                   target="_blank">
+
+                    View on GitHub →
+
+                </a>
+
+            </div>
+
+
+            <!-- POWER BI DASHBOARD -->
+            <div class="project">
+
+                <h3>
+                    Sales Performance Dashboard
+                </h3>
+
+                <p>
+                    Created an interactive Power BI dashboard with KPIs,
+                    sales trends, product performance, country analysis
+                    and business insights.
+                </p>
+
+                <a href="https://github.com/rankitssingh"
+                   target="_blank">
+
+                    View on GitHub →
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <h2 class="section-title">
+            Contact Me
+        </h2>
+
+        <div class="contact-box">
+
+            <p>
+                📧 Email:
+                <a href="mailto:rankitsingh182@gmail.com">
+                    rankitsingh182@gmail.com
+                </a>
+            </p>
+
+            <p>
+                💻 GitHub:
+                <a href="https://github.com/rankitssingh"
+                   target="_blank">
+
+                    github.com/rankitssingh
+
+                </a>
+            </p>
+
+            <p>
+                🔗 LinkedIn:
+                <a href="https://www.linkedin.com/in/rankit-kumar-476420338/"
+                   target="_blank">
+
+                    LinkedIn Profile
+
+                </a>
+            </p>
+
+            <br>
+
+            <!-- RESUME BUTTON -->
+            <a class="btn"
+               href="Rankit_Singh_Resume.pdf"
+               target="_blank">
+
+                Download / View Resume
+
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Rankit Singh | Data Analyst Portfolio
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
