@@ -8,9 +8,13 @@
   <title>Rankit Singh | Aspiring Data Analyst</title>
 
   <meta name="description"
-        content="Rankit Singh - Aspiring Data Analyst Portfolio. Skills in Python, SQL, Excel and Power BI.">
+        content="Rankit Singh - Aspiring Data Analyst skilled in Python, SQL, Excel and Power BI.">
 
   <style>
+
+    /* =========================
+       RESET
+    ========================= */
 
     * {
       margin: 0;
@@ -20,30 +24,50 @@
     }
 
     :root {
-      --bg: #080b12;
-      --card: #101521;
-      --card2: #141a28;
-      --border: #252d3d;
-      --text: #f5f7fb;
-      --muted: #9aa4b5;
-      --accent: #7c6cff;
-      --accent-light: #a49bff;
-      --white: #ffffff;
+      --bg: #07090d;
+      --bg-soft: #0c1017;
+      --card: #10151d;
+      --card-hover: #151b24;
+      --line: #202733;
+
+      --text: #f5f7fa;
+      --muted: #8993a3;
+      --muted-light: #b6beca;
+
+      --accent: #8b7cff;
+      --accent-soft: #a69cff;
+
+      --green: #75d69a;
     }
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(124,108,255,0.10), transparent 28%),
-        radial-gradient(circle at 85% 25%, rgba(70,130,255,0.07), transparent 25%),
-        var(--bg);
+      background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       BACKGROUND
+    ========================= */
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 700px;
+      height: 500px;
+      background: rgba(139,124,255,0.08);
+      filter: blur(130px);
+      pointer-events: none;
+      z-index: -1;
     }
 
     /* =========================
@@ -53,23 +77,28 @@
     header {
       position: sticky;
       top: 0;
-      z-index: 1000;
-      background: rgba(8, 11, 18, 0.88);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(14px);
+      z-index: 999;
+
+      background: rgba(7,9,13,0.78);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
     nav {
       max-width: 1180px;
       margin: auto;
-      padding: 18px 22px;
+
+      height: 72px;
+      padding: 0 22px;
+
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
 
     .logo {
-      font-size: 25px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.5px;
     }
@@ -80,19 +109,33 @@
 
     .nav-links {
       display: flex;
-      gap: 30px;
       list-style: none;
+      gap: 28px;
     }
 
     .nav-links a {
-      color: #b9c0ce;
-      font-size: 14px;
+      color: #9ba4b3;
+      font-size: 13px;
       font-weight: 600;
+
       transition: 0.25s;
     }
 
     .nav-links a:hover {
-      color: var(--white);
+      color: white;
+    }
+
+    .nav-resume {
+      padding: 9px 15px;
+      border: 1px solid #343b4b;
+      border-radius: 7px;
+      font-size: 12px !important;
+      color: white !important;
+    }
+
+    .nav-resume:hover {
+      border-color: var(--accent);
+      background: rgba(139,124,255,0.08);
     }
 
     /* =========================
@@ -102,309 +145,424 @@
     .hero {
       max-width: 1180px;
       min-height: 88vh;
+
       margin: auto;
-      padding: 90px 22px 70px;
+      padding: 100px 22px 70px;
+
       display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
+      grid-template-columns: 1.15fr 0.85fr;
+
+      align-items: center;
       gap: 70px;
-      align-items: center;
     }
 
-    .hero-left {
-      position: relative;
-    }
+    .hero-small {
+      color: var(--accent-soft);
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 8px 14px;
-      border: 1px solid #30384b;
-      border-radius: 50px;
-      background: rgba(16,21,33,0.8);
-      color: #b5afff;
-      font-size: 13px;
-      margin-bottom: 24px;
-    }
+      font-size: 12px;
+      font-weight: 700;
 
-    .badge-dot {
-      width: 8px;
-      height: 8px;
-      background: #72d572;
-      border-radius: 50%;
-      display: inline-block;
-      box-shadow: 0 0 10px rgba(114,213,114,0.7);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+
+      margin-bottom: 20px;
     }
 
     .hero h1 {
-      font-size: clamp(46px, 6vw, 72px);
-      line-height: 1.03;
-      letter-spacing: -2.5px;
+      font-size: clamp(48px, 6vw, 76px);
+      line-height: 1;
+      letter-spacing: -3px;
+
       margin-bottom: 25px;
     }
 
-    .hero h1 span {
+    .hero h1 .name {
       display: block;
-      color: var(--accent-light);
+      color: var(--accent-soft);
     }
 
     .hero-description {
+      max-width: 600px;
+
       color: var(--muted);
-      font-size: 18px;
-      max-width: 680px;
+      font-size: 17px;
+
       margin-bottom: 32px;
     }
 
     .hero-description strong {
-      color: #e3e6ed;
+      color: #e8ebf0;
     }
 
-    .buttons {
+    /* BUTTONS */
+
+    .hero-buttons {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .btn {
-      padding: 13px 20px;
-      border-radius: 9px;
-      border: 1px solid var(--border);
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 13px 19px;
+
+      border-radius: 8px;
+
+      font-size: 13px;
       font-weight: 700;
-      font-size: 14px;
+
       transition: 0.25s;
     }
 
-    .btn-primary {
-      background: var(--accent);
+    .button-primary {
+      background: white;
+      color: #090b10;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-3px);
+      background: #e8e9ed;
+    }
+
+    .button-dark {
+      background: #11161e;
+      border: 1px solid #272f3b;
+      color: #d8dde5;
+    }
+
+    .button-dark:hover {
+      transform: translateY(-3px);
       border-color: var(--accent);
-      color: white;
-      box-shadow: 0 8px 25px rgba(124,108,255,0.20);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      background: #6d5cf0;
-    }
-
-    .btn-secondary {
-      background: #101521;
-      color: #dce1eb;
-    }
-
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      border-color: #6558dc;
     }
 
     /* =========================
-       PROFILE CARD
+       DATA VISUAL CARD
     ========================= */
 
-    .profile-card {
+    .analytics-card {
       position: relative;
-      background:
-        linear-gradient(145deg, rgba(124,108,255,0.08), transparent 45%),
-        var(--card);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 32px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.35);
+
+      background: linear-gradient(
+        145deg,
+        #121722,
+        #0b0f16
+      );
+
+      border: 1px solid #242c38;
+      border-radius: 24px;
+
+      padding: 25px;
+
+      box-shadow:
+        0 30px 80px rgba(0,0,0,0.45);
+
+      overflow: hidden;
     }
 
-    .profile-top {
+    .analytics-card::before {
+      content: "";
+
+      position: absolute;
+      top: -80px;
+      right: -80px;
+
+      width: 200px;
+      height: 200px;
+
+      border-radius: 50%;
+
+      background: rgba(139,124,255,0.10);
+      filter: blur(40px);
+    }
+
+    .analytics-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 28px;
+    }
+
+    .analytics-header h2 {
+      font-size: 17px;
+    }
+
+    .live {
       display: flex;
       align-items: center;
-      gap: 15px;
-      padding-bottom: 25px;
-      margin-bottom: 25px;
-      border-bottom: 1px solid var(--border);
+      gap: 7px;
+
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 700;
+
+      text-transform: uppercase;
     }
 
-    .profile-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      background: #1a2031;
+    .live-dot {
+      width: 7px;
+      height: 7px;
+
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    /* CHART */
+
+    .chart {
+      height: 180px;
+
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 23px;
+      align-items: flex-end;
+      gap: 9px;
+
+      padding: 15px 0 10px;
+
+      border-bottom: 1px solid #29303b;
     }
 
-    .profile-top h2 {
-      font-size: 20px;
+    .bar {
+      flex: 1;
+
+      border-radius: 5px 5px 0 0;
+
+      background: linear-gradient(
+        to top,
+        #5148a8,
+        #9a90ff
+      );
+
+      opacity: 0.85;
     }
 
-    .profile-top p {
-      color: var(--muted);
-      font-size: 12px;
+    .bar:nth-child(1) { height: 35%; }
+    .bar:nth-child(2) { height: 48%; }
+    .bar:nth-child(3) { height: 42%; }
+    .bar:nth-child(4) { height: 67%; }
+    .bar:nth-child(5) { height: 58%; }
+    .bar:nth-child(6) { height: 82%; }
+    .bar:nth-child(7) { height: 72%; }
+    .bar:nth-child(8) { height: 94%; }
+
+    .chart-labels {
+      display: flex;
+      justify-content: space-between;
+
+      color: #606a79;
+      font-size: 9px;
+
+      padding-top: 8px;
     }
 
-    .profile-item {
-      margin-bottom: 22px;
+    /* METRICS */
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+
+      gap: 10px;
+
+      margin-top: 20px;
     }
 
-    .profile-item:last-child {
-      margin-bottom: 0;
+    .metric {
+      background: #0e131b;
+
+      border: 1px solid #1e2631;
+      border-radius: 10px;
+
+      padding: 14px;
     }
 
-    .profile-item small {
-      color: #6f798d;
+    .metric small {
       display: block;
-      margin-bottom: 4px;
-      font-size: 11px;
+
+      color: #697384;
+      font-size: 9px;
+
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    .profile-item strong {
-      color: #edf0f6;
-      font-size: 14px;
+    .metric strong {
+      display: block;
+
+      margin-top: 3px;
+
+      font-size: 19px;
     }
 
     /* =========================
-       SECTIONS
+       QUICK STATS
+    ========================= */
+
+    .quick-stats {
+      max-width: 1180px;
+
+      margin: auto;
+      padding: 10px 22px 80px;
+
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+
+      gap: 12px;
+    }
+
+    .quick-stat {
+      padding: 20px;
+
+      background: #0d1219;
+
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+
+    .quick-stat strong {
+      display: block;
+
+      color: white;
+      font-size: 24px;
+
+      margin-bottom: 2px;
+    }
+
+    .quick-stat span {
+      color: #707a89;
+      font-size: 11px;
+    }
+
+    /* =========================
+       GENERAL SECTION
     ========================= */
 
     section {
       max-width: 1180px;
       margin: auto;
-      padding: 90px 22px;
+
+      padding: 100px 22px;
     }
 
-    .section-heading {
-      margin-bottom: 38px;
-    }
+    .section-number {
+      color: var(--accent-soft);
 
-    .section-label {
-      color: var(--accent-light);
-      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: 800;
+
       letter-spacing: 2px;
-      font-size: 11px;
-      font-weight: 700;
+
       margin-bottom: 8px;
     }
 
     .section-title {
       font-size: 38px;
       line-height: 1.15;
+
       letter-spacing: -1px;
+
       margin-bottom: 10px;
     }
 
     .section-title span {
-      color: var(--accent-light);
+      color: var(--accent-soft);
     }
 
-    .section-subtitle {
-      color: #7f899c;
-      font-size: 15px;
-    }
+    .section-description {
+      color: #778191;
+      font-size: 14px;
 
-    /* =========================
-       STATS
-    ========================= */
-
-    .stats-section {
-      padding-top: 10px;
-      padding-bottom: 70px;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-    }
-
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      padding: 24px;
-      text-align: left;
-      transition: 0.25s;
-    }
-
-    .stat-card:hover {
-      transform: translateY(-4px);
-      border-color: #403b75;
-    }
-
-    .stat-card h3 {
-      font-size: 29px;
-      color: var(--accent-light);
-      margin-bottom: 4px;
-    }
-
-    .stat-card p {
-      color: #7f899c;
-      font-size: 13px;
+      margin-bottom: 40px;
     }
 
     /* =========================
        ABOUT
     ========================= */
 
-    .about-box {
+    .about-layout {
       display: grid;
       grid-template-columns: 0.8fr 1.2fr;
-      gap: 35px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 38px;
+
+      gap: 50px;
     }
 
-    .about-intro h3 {
-      font-size: 25px;
+    .about-highlight {
+      padding: 28px;
+
+      background: linear-gradient(
+        145deg,
+        #121722,
+        #0c1016
+      );
+
+      border: 1px solid var(--line);
+      border-radius: 17px;
+    }
+
+    .about-highlight h3 {
+      font-size: 22px;
       margin-bottom: 12px;
     }
 
-    .about-intro h3 span {
-      color: var(--accent-light);
+    .about-highlight h3 span {
+      color: var(--accent-soft);
     }
 
-    .about-intro p {
-      color: var(--muted);
+    .about-highlight p {
+      color: #818b9b;
       font-size: 14px;
     }
 
     .about-text p {
-      color: #aab2c0;
-      font-size: 15px;
-      margin-bottom: 18px;
-    }
+      color: #9aa3b1;
 
-    .about-text p:last-child {
-      margin-bottom: 0;
+      font-size: 15px;
+
+      margin-bottom: 20px;
     }
 
     /* =========================
        SKILLS
     ========================= */
 
-    .skills-grid {
+    .skill-categories {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
+      grid-template-columns: repeat(2,1fr);
+
+      gap: 15px;
     }
 
-    .skill {
+    .skill-category {
+      padding: 24px;
+
       background: var(--card);
-      border: 1px solid var(--border);
-      padding: 20px 15px;
-      border-radius: 13px;
-      text-align: center;
-      color: #dce1ea;
-      font-weight: 600;
-      font-size: 14px;
-      transition: 0.25s;
+
+      border: 1px solid var(--line);
+      border-radius: 15px;
     }
 
-    .skill:hover {
-      transform: translateY(-4px);
-      border-color: #51499b;
-      background: var(--card2);
+    .skill-category h3 {
+      font-size: 15px;
+      margin-bottom: 15px;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-pill {
+      padding: 7px 11px;
+
+      background: #171d27;
+
+      border: 1px solid #262e3a;
+      border-radius: 6px;
+
+      color: #b7bfcc;
+      font-size: 11px;
     }
 
     /* =========================
@@ -413,155 +571,196 @@
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(2,1fr);
+
+      gap: 16px;
     }
 
-    .project-card {
+    .project {
       position: relative;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 18px;
+
       padding: 28px;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+      border-radius: 17px;
+
       transition: 0.3s;
+
       overflow: hidden;
     }
 
-    .project-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-      opacity: 0;
-      transition: 0.3s;
+    .project:hover {
+      transform: translateY(-5px);
+
+      background: var(--card-hover);
+
+      border-color: #45406f;
     }
 
-    .project-card:hover {
-      transform: translateY(-6px);
-      border-color: #4a438c;
-      box-shadow: 0 18px 45px rgba(0,0,0,0.25);
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 25px;
     }
 
-    .project-card:hover::before {
-      opacity: 1;
-    }
+    .project-id {
+      color: #625aa8;
 
-    .project-number {
-      color: #7770db;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
+
       letter-spacing: 1.5px;
-      margin-bottom: 13px;
     }
 
-    .project-card h3 {
+    .project-arrow {
+      width: 32px;
+      height: 32px;
+
+      border: 1px solid #2a313d;
+      border-radius: 50%;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #a69cff;
+      font-size: 14px;
+    }
+
+    .project h3 {
       font-size: 21px;
       margin-bottom: 10px;
     }
 
-    .project-card p {
-      color: #929cad;
-      font-size: 14px;
-      margin-bottom: 19px;
-      min-height: 67px;
+    .project p {
+      color: #7f8998;
+      font-size: 13px;
+
+      min-height: 62px;
+
+      margin-bottom: 20px;
     }
 
     .project-tags {
       display: flex;
-      gap: 7px;
       flex-wrap: wrap;
-      margin-bottom: 20px;
+
+      gap: 7px;
+
+      margin-bottom: 22px;
     }
 
-    .tag {
-      padding: 5px 9px;
+    .project-tag {
+      padding: 5px 8px;
+
+      background: #171d27;
+
+      border: 1px solid #242c37;
       border-radius: 5px;
-      background: #191f2d;
-      color: #aaa3ff;
-      border: 1px solid #252c3d;
-      font-size: 11px;
+
+      color: #9f97ed;
+      font-size: 10px;
     }
 
     .project-link {
-      color: #aaa3ff;
-      font-size: 13px;
-      font-weight: 700;
-    }
+      color: #aaa2ff;
 
-    .project-link:hover {
-      color: white;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     /* =========================
        CONTACT
     ========================= */
 
-    .contact-box {
-      background:
-        linear-gradient(135deg, rgba(124,108,255,0.07), transparent 45%),
-        var(--card);
-      border: 1px solid var(--border);
-      border-radius: 21px;
-      padding: 38px;
+    .contact-wrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
+      grid-template-columns: 1fr 0.8fr;
+
+      gap: 20px;
     }
 
-    .contact-info h3 {
-      font-size: 25px;
+    .contact-main {
+      padding: 38px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(139,124,255,0.10),
+          transparent 55%
+        ),
+        var(--card);
+
+      border: 1px solid var(--line);
+      border-radius: 19px;
+    }
+
+    .contact-main h3 {
+      font-size: 28px;
       margin-bottom: 12px;
     }
 
-    .contact-info > p {
-      color: var(--muted);
+    .contact-main h3 span {
+      color: var(--accent-soft);
+    }
+
+    .contact-main p {
+      color: #8b95a5;
+
       font-size: 14px;
+
+      max-width: 550px;
+
       margin-bottom: 25px;
-      max-width: 430px;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
     .contact-detail {
-      margin-bottom: 16px;
-    }
+      padding: 11px 13px;
 
-    .contact-detail small {
-      color: #707a8e;
-      display: block;
+      background: #111720;
+
+      border: 1px solid #242c37;
+      border-radius: 8px;
+
+      color: #c1c8d2;
+
       font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 3px;
     }
 
-    .contact-detail strong {
-      color: #e8ebf1;
-      font-size: 14px;
-    }
-
-    .contact-links {
+    .contact-buttons {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      justify-content: center;
     }
 
-    .contact-links a {
-      padding: 13px 15px;
-      background: #161c29;
-      border-radius: 9px;
-      color: #c9ced9;
-      border: 1px solid var(--border);
-      font-size: 13px;
-      font-weight: 600;
+    .contact-button {
+      padding: 15px;
+
+      background: var(--card);
+
+      border: 1px solid var(--line);
+      border-radius: 10px;
+
+      color: #c9cfd8;
+
+      font-size: 12px;
+      font-weight: 700;
+
       transition: 0.25s;
     }
 
-    .contact-links a:hover {
-      border-color: #554ca3;
-      color: #aaa3ff;
+    .contact-button:hover {
+      border-color: #4e4794;
       transform: translateX(4px);
     }
 
@@ -570,134 +769,166 @@
     ========================= */
 
     footer {
+      border-top: 1px solid #1a202a;
+
       text-align: center;
-      padding: 30px 20px;
-      border-top: 1px solid #1d2432;
-      color: #697386;
-      font-size: 12px;
+
+      padding: 28px 20px;
+
+      color: #626c7b;
+      font-size: 11px;
     }
 
     /* =========================
        RESPONSIVE
     ========================= */
 
-    @media (max-width: 950px) {
+    @media (max-width: 900px) {
 
       .hero {
         grid-template-columns: 1fr;
-        gap: 40px;
-        min-height: auto;
+        padding-top: 75px;
       }
 
-      .profile-card {
+      .analytics-card {
         max-width: 600px;
       }
 
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
+      .quick-stats {
+        grid-template-columns: repeat(2,1fr);
       }
 
-      .skills-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
-      .about-box {
+      .about-layout {
         grid-template-columns: 1fr;
       }
+
+      .contact-wrapper {
+        grid-template-columns: 1fr;
+      }
+
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 650px) {
 
       .nav-links {
         display: none;
       }
 
-      nav {
-        justify-content: center;
+      .nav-resume {
+        display: block;
       }
 
       .hero {
-        padding-top: 65px;
+        padding-top: 60px;
       }
 
       .hero h1 {
-        font-size: 46px;
-        letter-spacing: -1.5px;
+        font-size: 48px;
+        letter-spacing: -2px;
       }
 
       .hero-description {
-        font-size: 16px;
+        font-size: 15px;
+      }
+
+      .quick-stats {
+        grid-template-columns: repeat(2,1fr);
+      }
+
+      .skill-categories {
+        grid-template-columns: 1fr;
       }
 
       .projects-grid {
         grid-template-columns: 1fr;
       }
 
-      .contact-box {
-        grid-template-columns: 1fr;
-        gap: 30px;
+      section {
+        padding: 75px 18px;
       }
 
-      .section-title {
-        font-size: 32px;
+      .contact-main {
+        padding: 28px;
       }
+
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 430px) {
 
       .hero h1 {
-        font-size: 39px;
+        font-size: 40px;
       }
 
-      .stats {
-        grid-template-columns: 1fr 1fr;
+      .hero-buttons {
+        flex-direction: column;
       }
 
-      .skills-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .about-box,
-      .contact-box,
-      .profile-card {
-        padding: 25px;
-      }
-
-      section {
-        padding: 65px 18px;
-      }
-
-      .btn {
+      .button {
         width: 100%;
-        text-align: center;
       }
+
+      .quick-stats {
+        gap: 8px;
+      }
+
+      .quick-stat {
+        padding: 16px;
+      }
+
+      .quick-stat strong {
+        font-size: 21px;
+      }
+
     }
 
   </style>
 </head>
 
+
 <body>
+
 
   <!-- =========================
        NAVBAR
   ========================= -->
 
   <header>
+
     <nav>
 
-      <div class="logo">
+      <a href="#home" class="logo">
         Rankit<span>.</span>
-      </div>
+      </a>
 
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+
+        <li>
+          <a href="#about">About</a>
+        </li>
+
+        <li>
+          <a href="#skills">Skills</a>
+        </li>
+
+        <li>
+          <a href="#projects">Projects</a>
+        </li>
+
+        <li>
+          <a href="#contact">Contact</a>
+        </li>
+
       </ul>
 
+      <a
+        href="./Rankit%20cv.pdf"
+        target="_blank"
+        class="nav-resume">
+        Resume
+      </a>
+
     </nav>
+
   </header>
 
 
@@ -709,46 +940,48 @@
 
     <div class="hero">
 
-      <div class="hero-left">
+      <div>
 
-        <div class="badge">
-          <span class="badge-dot"></span>
+        <div class="hero-small">
           Available for Data Analyst Opportunities
         </div>
 
         <h1>
-          Hi, I'm
-          <span>Rankit Singh</span>
+          Turning data
+          <span class="name">
+            into insights.
+          </span>
         </h1>
 
         <p class="hero-description">
-          <strong>Aspiring Data Analyst</strong> with hands-on
-          knowledge of SQL, Python, Excel and Power BI.
-          I enjoy turning raw data into meaningful insights,
-          reports and interactive dashboards.
+
+          I'm <strong>Rankit Singh</strong>, an aspiring Data Analyst
+          focused on using <strong>Python, SQL, Excel and Power BI</strong>
+          to clean, analyze and visualize data.
+
         </p>
 
-        <div class="buttons">
+
+        <div class="hero-buttons">
 
           <a
             href="./Rankit%20cv.pdf"
             target="_blank"
-            class="btn btn-primary">
-            📄 View Resume
+            class="button button-primary">
+            View Resume ↗
+          </a>
+
+          <a
+            href="#projects"
+            class="button button-dark">
+            Explore Projects ↓
           </a>
 
           <a
             href="https://github.com/rankitssingh"
             target="_blank"
-            class="btn btn-secondary">
+            class="button button-dark">
             GitHub ↗
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/rankit-kumar-476420338/"
-            target="_blank"
-            class="btn btn-secondary">
-            LinkedIn ↗
           </a>
 
         </div>
@@ -756,41 +989,70 @@
       </div>
 
 
-      <!-- PROFILE -->
+      <!-- DATA CARD -->
 
-      <div class="profile-card">
+      <div class="analytics-card">
 
-        <div class="profile-top">
+        <div class="analytics-header">
 
-          <div class="profile-icon">
-            📊
+          <h2>Analytics Overview</h2>
+
+          <div class="live">
+            <span class="live-dot"></span>
+            Portfolio
           </div>
 
-          <div>
-            <h2>Profile</h2>
-            <p>Data Analytics</p>
+        </div>
+
+
+        <div class="chart">
+
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+
+        </div>
+
+
+        <div class="chart-labels">
+          <span>Jan</span>
+          <span>Feb</span>
+          <span>Mar</span>
+          <span>Apr</span>
+          <span>May</span>
+          <span>Jun</span>
+          <span>Jul</span>
+          <span>Aug</span>
+        </div>
+
+
+        <div class="metrics">
+
+          <div class="metric">
+            <small>Projects</small>
+            <strong>5+</strong>
           </div>
 
-        </div>
+          <div class="metric">
+            <small>Core Tools</small>
+            <strong>4</strong>
+          </div>
 
-        <div class="profile-item">
-          <small>Education</small>
-          <strong>B.Tech Computer Science</strong>
-        </div>
+          <div class="metric">
+            <small>Skills</small>
+            <strong>10+</strong>
+          </div>
 
-        <div class="profile-item">
-          <small>Core Skills</small>
-          <strong>Python • SQL • Excel • Power BI</strong>
-        </div>
+          <div class="metric">
+            <small>Focus</small>
+            <strong>Data</strong>
+          </div>
 
-        <div class="profile-item">
-          <small>Focus</small>
-          <strong>Data Analysis & Visualization</strong>
-        </div>
-
-        <div class="profile-item">
-          <small>Location</small>
-          <strong>Jaipur, Rajasthan, India</strong>
         </div>
 
       </div>
@@ -799,36 +1061,32 @@
 
 
     <!-- =========================
-         STATS
+         QUICK STATS
     ========================= -->
 
-    <section class="stats-section">
+    <div class="quick-stats">
 
-      <div class="stats">
-
-        <div class="stat-card">
-          <h3>5+</h3>
-          <p>Data Projects</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>10+</h3>
-          <p>Analytics Skills</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>4</h3>
-          <p>Core Tools</p>
-        </div>
-
-        <div class="stat-card">
-          <h3>2026</h3>
-          <p>Portfolio</p>
-        </div>
-
+      <div class="quick-stat">
+        <strong>5+</strong>
+        <span>Data Projects</span>
       </div>
 
-    </section>
+      <div class="quick-stat">
+        <strong>10+</strong>
+        <span>Analytics Skills</span>
+      </div>
+
+      <div class="quick-stat">
+        <strong>4</strong>
+        <span>Core Tools</span>
+      </div>
+
+      <div class="quick-stat">
+        <strong>2026</strong>
+        <span>Portfolio</span>
+      </div>
+
+    </div>
 
 
     <!-- =========================
@@ -837,35 +1095,32 @@
 
     <section id="about">
 
-      <div class="section-heading">
-
-        <div class="section-label">
-          Introduction
-        </div>
-
-        <h2 class="section-title">
-          About <span>Me</span>
-        </h2>
-
-        <p class="section-subtitle">
-          A little about my background and career goal
-        </p>
-
+      <div class="section-number">
+        01 — ABOUT
       </div>
 
+      <h2 class="section-title">
+        A little <span>about me.</span>
+      </h2>
 
-      <div class="about-box">
+      <p class="section-description">
+        My background, learning journey and career goal.
+      </p>
 
-        <div class="about-intro">
+
+      <div class="about-layout">
+
+
+        <div class="about-highlight">
 
           <h3>
-            Building my career in
-            <span>Data Analytics.</span>
+            Aspiring <span>Data Analyst</span>
           </h3>
 
           <p>
             Final-year B.Tech Computer Science student
-            interested in turning data into useful business insights.
+            building practical skills in data analysis,
+            visualization and business insights.
           </p>
 
         </div>
@@ -880,16 +1135,16 @@
           </p>
 
           <p>
-            I have been learning and working with Python, SQL, Excel
-            and Power BI to clean, analyze and visualize data.
-            I have also created multiple data analytics projects
-            using real-world style datasets.
+            I have been learning and working with Python, SQL,
+            Excel and Power BI to clean, analyze and visualize data.
+            I have also created multiple analytics projects using
+            real-world style datasets.
           </p>
 
           <p>
-            My goal is to start my career as a Data Analyst and
-            contribute to a professional organization while
-            continuously improving my analytical and technical skills.
+            My goal is to start my career as a Data Analyst,
+            contribute to a professional organization and
+            continuously improve my analytical and technical skills.
           </p>
 
         </div>
@@ -905,39 +1160,87 @@
 
     <section id="skills">
 
-      <div class="section-heading">
-
-        <div class="section-label">
-          Technical Skills
-        </div>
-
-        <h2 class="section-title">
-          My <span>Skills</span>
-        </h2>
-
-        <p class="section-subtitle">
-          Tools and technologies I use for data analysis
-        </p>
-
+      <div class="section-number">
+        02 — SKILLS
       </div>
 
+      <h2 class="section-title">
+        Tools I <span>work with.</span>
+      </h2>
 
-      <div class="skills-grid">
+      <p class="section-description">
+        Technologies and analytical skills I am developing.
+      </p>
 
-        <div class="skill">Python</div>
-        <div class="skill">SQL</div>
-        <div class="skill">Power BI</div>
-        <div class="skill">MS Excel</div>
 
-        <div class="skill">Pandas</div>
-        <div class="skill">NumPy</div>
-        <div class="skill">Matplotlib</div>
-        <div class="skill">Seaborn</div>
+      <div class="skill-categories">
 
-        <div class="skill">Data Cleaning</div>
-        <div class="skill">EDA</div>
-        <div class="skill">DAX</div>
-        <div class="skill">Data Visualization</div>
+
+        <div class="skill-category">
+
+          <h3>Programming & Analysis</h3>
+
+          <div class="skill-list">
+
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Pandas</span>
+            <span class="skill-pill">NumPy</span>
+            <span class="skill-pill">Matplotlib</span>
+            <span class="skill-pill">Seaborn</span>
+            <span class="skill-pill">EDA</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>Database & Query</h3>
+
+          <div class="skill-list">
+
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">MySQL</span>
+            <span class="skill-pill">JOIN</span>
+            <span class="skill-pill">GROUP BY</span>
+            <span class="skill-pill">Aggregations</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>Visualization & BI</h3>
+
+          <div class="skill-list">
+
+            <span class="skill-pill">Power BI</span>
+            <span class="skill-pill">DAX</span>
+            <span class="skill-pill">Dashboards</span>
+            <span class="skill-pill">Data Visualization</span>
+
+          </div>
+
+        </div>
+
+
+        <div class="skill-category">
+
+          <h3>Spreadsheet & Data</h3>
+
+          <div class="skill-list">
+
+            <span class="skill-pill">MS Excel</span>
+            <span class="skill-pill">Pivot Tables</span>
+            <span class="skill-pill">Advanced Formulas</span>
+            <span class="skill-pill">Data Cleaning</span>
+
+          </div>
+
+        </div>
 
       </div>
 
@@ -950,21 +1253,18 @@
 
     <section id="projects">
 
-      <div class="section-heading">
-
-        <div class="section-label">
-          Portfolio Work
-        </div>
-
-        <h2 class="section-title">
-          Featured <span>Projects</span>
-        </h2>
-
-        <p class="section-subtitle">
-          Practical projects built using Python, SQL, Excel and Power BI
-        </p>
-
+      <div class="section-number">
+        03 — PROJECTS
       </div>
+
+      <h2 class="section-title">
+        Selected <span>work.</span>
+      </h2>
+
+      <p class="section-description">
+        Practical data analytics projects built with Python,
+        SQL, Excel and Power BI.
+      </p>
 
 
       <div class="projects-grid">
@@ -972,32 +1272,43 @@
 
         <!-- PROJECT 1 -->
 
-        <div class="project-card">
+        <div class="project">
 
-          <div class="project-number">
-            PROJECT 01
+          <div class="project-top">
+
+            <span class="project-id">
+              PROJECT 01
+            </span>
+
+            <span class="project-arrow">
+              ↗
+            </span>
+
           </div>
 
-          <h3>Sales Data Analysis</h3>
+          <h3>
+            Sales Data Analysis
+          </h3>
 
           <p>
-            Analyzed sales data using Python to understand
-            regional performance, monthly sales trends and
-            important business insights.
+            Analyzed sales data to understand regional performance,
+            monthly sales trends and useful business insights.
           </p>
 
           <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
+
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">Matplotlib</span>
+            <span class="project-tag">Seaborn</span>
+
           </div>
 
           <a
             href="https://github.com/rankitssingh/sales-data-analysis"
             target="_blank"
             class="project-link">
-            View Project →
+            View on GitHub →
           </a>
 
         </div>
@@ -1005,31 +1316,42 @@
 
         <!-- PROJECT 2 -->
 
-        <div class="project-card">
+        <div class="project">
 
-          <div class="project-number">
-            PROJECT 02
+          <div class="project-top">
+
+            <span class="project-id">
+              PROJECT 02
+            </span>
+
+            <span class="project-arrow">
+              ↗
+            </span>
+
           </div>
 
-          <h3>Customer Purchase Analysis</h3>
+          <h3>
+            Customer Purchase Analysis
+          </h3>
 
           <p>
             Analyzed customer purchase data to understand
-            customer behavior, product sales and total purchase
-            amounts using Python.
+            customer behavior, products and total purchase amounts.
           </p>
 
           <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">EDA</span>
+
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">EDA</span>
+
           </div>
 
           <a
             href="https://github.com/rankitssingh/sales-data-analysis/blob/main/Customer%20Purchase%20Data%20Analysis.py"
             target="_blank"
             class="project-link">
-            View Project →
+            View on GitHub →
           </a>
 
         </div>
@@ -1037,30 +1359,42 @@
 
         <!-- PROJECT 3 -->
 
-        <div class="project-card">
+        <div class="project">
 
-          <div class="project-number">
-            PROJECT 03
+          <div class="project-top">
+
+            <span class="project-id">
+              PROJECT 03
+            </span>
+
+            <span class="project-arrow">
+              ↗
+            </span>
+
           </div>
 
-          <h3>Department Salary Analysis</h3>
+          <h3>
+            Department Salary Analysis
+          </h3>
 
           <p>
-            Analyzed department-wise salary data to compare
-            salary levels across Finance, HR, IT and Sales departments.
+            Analyzed department-wise salary data across
+            Finance, HR, IT and Sales departments.
           </p>
 
           <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Excel</span>
+
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Matplotlib</span>
+            <span class="project-tag">Excel</span>
+
           </div>
 
           <a
             href="https://github.com/rankitssingh/sales-data-analysis/blob/main/department_salary_analysis.py"
             target="_blank"
             class="project-link">
-            View Project →
+            View on GitHub →
           </a>
 
         </div>
@@ -1068,31 +1402,42 @@
 
         <!-- PROJECT 4 -->
 
-        <div class="project-card">
+        <div class="project">
 
-          <div class="project-number">
-            PROJECT 04
+          <div class="project-top">
+
+            <span class="project-id">
+              PROJECT 04
+            </span>
+
+            <span class="project-arrow">
+              ↗
+            </span>
+
           </div>
 
-          <h3>Sales Performance Dashboard</h3>
+          <h3>
+            Sales Performance Dashboard
+          </h3>
 
           <p>
             Created an interactive Power BI dashboard covering
-            sales, units, profit, products, countries, segments
-            and monthly sales trends.
+            sales, units, profit, products, countries and segments.
           </p>
 
           <div class="project-tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">DAX</span>
-            <span class="tag">Dashboard</span>
+
+            <span class="project-tag">Power BI</span>
+            <span class="project-tag">DAX</span>
+            <span class="project-tag">Dashboard</span>
+
           </div>
 
           <a
             href="https://github.com/rankitssingh/sales-data-analysis"
             target="_blank"
             class="project-link">
-            View Project →
+            View on GitHub →
           </a>
 
         </div>
@@ -1100,32 +1445,43 @@
 
         <!-- PROJECT 5 -->
 
-        <div class="project-card">
+        <div class="project">
 
-          <div class="project-number">
-            PROJECT 05
+          <div class="project-top">
+
+            <span class="project-id">
+              PROJECT 05
+            </span>
+
+            <span class="project-arrow">
+              ↗
+            </span>
+
           </div>
 
-          <h3>FoodRush – Customer & Delivery Analytics</h3>
+          <h3>
+            FoodRush — Customer & Delivery Analytics
+          </h3>
 
           <p>
-            Analyzed customer orders and delivery data using
-            Python to understand revenue, order trends,
-            delivery performance and order status.
+            Analyzed customer orders and delivery data to understand
+            revenue, order trends, delivery performance and order status.
           </p>
 
           <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Pandas</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Visualization</span>
+
+            <span class="project-tag">Python</span>
+            <span class="project-tag">Pandas</span>
+            <span class="project-tag">NumPy</span>
+            <span class="project-tag">Visualization</span>
+
           </div>
 
           <a
             href="https://github.com/rankitssingh/sales-data-analysis/blob/main/foodrush_analysis.py"
             target="_blank"
             class="project-link">
-            View Project →
+            View on GitHub →
           </a>
 
         </div>
@@ -1142,81 +1498,86 @@
 
     <section id="contact">
 
-      <div class="section-heading">
-
-        <div class="section-label">
-          Get In Touch
-        </div>
-
-        <h2 class="section-title">
-          Contact <span>Me</span>
-        </h2>
-
-        <p class="section-subtitle">
-          Feel free to contact me regarding job opportunities
-        </p>
-
+      <div class="section-number">
+        04 — CONTACT
       </div>
 
+      <h2 class="section-title">
+        Let's <span>connect.</span>
+      </h2>
 
-      <div class="contact-box">
+      <p class="section-description">
+        Open to Data Analyst and relevant entry-level opportunities.
+      </p>
 
-        <div class="contact-info">
+
+      <div class="contact-wrapper">
+
+
+        <div class="contact-main">
 
           <h3>
-            Let's connect.
+            Looking for my <span>first opportunity.</span>
           </h3>
 
           <p>
-            I am currently looking for opportunities to start
-            my career as a Data Analyst and grow my skills
-            in a professional environment.
+            I am currently looking for an opportunity to start
+            my professional career as a Data Analyst and apply
+            my skills in a real-world environment.
           </p>
 
 
-          <div class="contact-detail">
-            <small>Phone</small>
-            <strong>7295935674</strong>
-          </div>
+          <div class="contact-details">
 
-          <div class="contact-detail">
-            <small>Email</small>
-            <strong>rankitsingh182@gmail.com</strong>
-          </div>
+            <div class="contact-detail">
+              📍 Jaipur, Rajasthan
+            </div>
 
-          <div class="contact-detail">
-            <small>Location</small>
-            <strong>Jaipur, Rajasthan, India</strong>
+            <div class="contact-detail">
+              📧 rankitsingh182@gmail.com
+            </div>
+
+            <div class="contact-detail">
+              📞 7295935674
+            </div>
+
           </div>
 
         </div>
 
 
-        <div class="contact-links">
+        <div class="contact-buttons">
 
-          <a href="tel:7295935674">
-            📞 Call Me
+          <a
+            href="mailto:rankitsingh182@gmail.com"
+            class="contact-button">
+            ✉ Send Email
           </a>
 
-          <a href="mailto:rankitsingh182@gmail.com">
-            ✉️ Send Email
+          <a
+            href="tel:7295935674"
+            class="contact-button">
+            ☎ Call Me
           </a>
 
           <a
             href="https://github.com/rankitssingh"
-            target="_blank">
-            💻 GitHub
+            target="_blank"
+            class="contact-button">
+            GitHub ↗
           </a>
 
           <a
             href="https://www.linkedin.com/in/rankit-kumar-476420338/"
-            target="_blank">
-            🔗 LinkedIn
+            target="_blank"
+            class="contact-button">
+            LinkedIn ↗
           </a>
 
           <a
             href="./Rankit%20cv.pdf"
-            target="_blank">
+            target="_blank"
+            class="contact-button">
             📄 View Resume
           </a>
 
@@ -1225,6 +1586,7 @@
       </div>
 
     </section>
+
 
   </main>
 
@@ -1235,9 +1597,10 @@
 
   <footer>
 
-    © 2026 Rankit Singh | Aspiring Data Analyst
+    © 2026 Rankit Singh · Aspiring Data Analyst
 
   </footer>
+
 
 </body>
 </html>
